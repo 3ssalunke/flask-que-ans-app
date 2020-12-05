@@ -2,7 +2,7 @@ from .database_connection_cm import DatabaseConnection
 
 
 def create_users_table():
-    with DatabaseConnection('questions.db') as connection:
+    with DatabaseConnection() as connection:
         cursor = connection.cursor()
 
         cursor.execute(
@@ -11,7 +11,7 @@ def create_users_table():
 
 
 def create_questions_table():
-    with DatabaseConnection('questions.db') as connection:
+    with DatabaseConnection() as connection:
         cursor = connection.cursor()
 
         cursor.execute(
@@ -20,7 +20,7 @@ def create_questions_table():
 
 
 def insert_users(name, password, expert, admin):
-    with DatabaseConnection('questions.db') as connection:
+    with DatabaseConnection() as connection:
         cursor = connection.cursor()
 
         cursor.execute(
@@ -30,7 +30,7 @@ def insert_users(name, password, expert, admin):
 
 
 def insert_questions(question, asked_id, expert_id):
-    with DatabaseConnection('questions.db') as connection:
+    with DatabaseConnection() as connection:
         cursor = connection.cursor()
 
         cursor.execute(
@@ -40,7 +40,7 @@ def insert_questions(question, asked_id, expert_id):
 
 
 def get_all_db_users():
-    with DatabaseConnection('questions.db') as connection:
+    with DatabaseConnection() as connection:
         cursor = connection.cursor()
 
         cursor.execute(
@@ -51,7 +51,7 @@ def get_all_db_users():
 
 
 def get_user_by_name(name):
-    with DatabaseConnection('questions.db') as connection:
+    with DatabaseConnection() as connection:
         cursor = connection.cursor()
 
         cursor.execute(
@@ -65,7 +65,7 @@ def get_user_by_name(name):
 
 
 def get_all_experts():
-    with DatabaseConnection('questions.db') as connection:
+    with DatabaseConnection() as connection:
         cursor = connection.cursor()
 
         cursor.execute(
@@ -76,7 +76,7 @@ def get_all_experts():
 
 
 def get_unanswered_question_by_expert(expert_id):
-    with DatabaseConnection('questions.db') as connection:
+    with DatabaseConnection() as connection:
         cursor = connection.cursor()
 
         cursor.execute(
@@ -87,7 +87,7 @@ def get_unanswered_question_by_expert(expert_id):
 
 
 def get_question_by_id(question_id):
-    with DatabaseConnection('questions.db') as connection:
+    with DatabaseConnection() as connection:
         cursor = connection.cursor()
 
         cursor.execute(
@@ -100,7 +100,7 @@ def get_question_by_id(question_id):
 
 
 def get_all_answered_questions():
-    with DatabaseConnection('questions.db') as connection:
+    with DatabaseConnection() as connection:
         cursor = connection.cursor()
 
         cursor.execute(
@@ -111,7 +111,7 @@ def get_all_answered_questions():
 
 
 def get_queans_by_id(question_id):
-    with DatabaseConnection('questions.db') as connection:
+    with DatabaseConnection() as connection:
         cursor = connection.cursor()
 
         cursor.execute(
@@ -123,7 +123,7 @@ def get_queans_by_id(question_id):
         return None
 
 def update_to_expert(user_id):
-    with DatabaseConnection('questions.db') as connection:
+    with DatabaseConnection() as connection:
         cursor = connection.cursor()
 
         cursor.execute(
@@ -132,7 +132,7 @@ def update_to_expert(user_id):
 
 
 def update_question_answer(question_id, answer):
-    with DatabaseConnection('questions.db') as connection:
+    with DatabaseConnection() as connection:
         cursor = connection.cursor()
 
         cursor.execute(

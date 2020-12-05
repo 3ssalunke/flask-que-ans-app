@@ -1,13 +1,12 @@
 import sqlite3
-
+import psycopg2
 
 class DatabaseConnection:
-    def __init__(self, host):
+    def __init__(self):
         self.connection = None
-        self.host = host
 
     def __enter__(self):
-        self.connection = sqlite3.connect(self.host)
+        self.connection = psycopg2.connect('postgres://chmuelxmudoyhe:password@ec2-52-5-176-53.compute-1.amazonaws.com:5432/dfbdt7rekv4jmj')
         return self.connection
 
     def __exit__(self, a, b, c):
