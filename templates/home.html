@@ -1,0 +1,28 @@
+{%extends 'base.html'%} 
+{%from 'show_links.html' import show_links%} 
+{%block title%}Questions & Answers{%endblock%} 
+{%block nav%} {{show_links(user)}} {%endblock%}
+{%block body%}
+<div class="page-header">
+  <h1>Answered Questions</h1>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="list-group">
+      {%for qwa in qwas%}
+      <a
+        href="{{url_for('question', question_id=qwa.id)}}"
+        class="list-group-item"
+      >
+        <h4 class="list-group-item-heading">{{qwa.question}}</h4>
+        <p class="list-group-item-text">Asked by: {{qwa.asked_by}}</p>
+        <p class="list-group-item-text">
+          Answered by: {{qwa.answered_by}}
+        </p>
+      </a>
+      {%endfor%}
+    </div>
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+{%endblock%}
